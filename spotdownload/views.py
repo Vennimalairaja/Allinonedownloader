@@ -22,8 +22,8 @@ def Homepage(request):
             if file:
                 success_failure=move_file(file)
                 file=f'/Music/{file}'
-                link=static(file)
-                return render(request,'download.html',{'link':link})
+                spotify=static(file)
+                return render(request,'download.html',{'link':spotify})
             else:
                 return HttpResponse('<h1>Failure</h1>')
         elif submitted=='Youtube':

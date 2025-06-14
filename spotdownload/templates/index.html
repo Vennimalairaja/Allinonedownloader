@@ -1,25 +1,64 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home page</title>
+        <title>All in One downloader</title>
+        <style>
+            .container{
+                display:flex;
+                justify-content: space-evenly;
+                align-items: center;
+                flex-wrap:wrap;
+                gap: 20px;
+            }
+            input[type=url],select{
+                border-radius: 4px;
+                font-size:36px;
+            }
+            label{
+                font-size: 36px;
+            }
+            button{
+                background-color:#33b249;
+                border-radius: 5px;
+                font-size :36px;
+                border:none;
+            }
+        </style>
     </head>
     <body>
-        <h1>This is my page</h1>
+        <h1 style="text-align: center;">Welcome to AllinOneDownloader</h1>
+        <div class="container">
         <div>
         <form method='POST'>
             {{form.as_p}}
             {% csrf_token %}
-            <button type="submit" name="form_submit" value="spotify">Submit</button>
+            <button type="submit" id='spotify' name="form_submit" value="spotify">Convert</button>
         </form>
         </div>
         <div>
             <form method="POST">
                 {{youtube.as_p}}
                 {% csrf_token %}
-                <button type="submit" name="form_submit" value="Youtube">Submit</button>
+                <button type="submit" id='youtube' name="form_submit" value="Youtube">Convert</button>
             </form>
         </div>
-
+        </div>
+        <audio id="myAudio">
+            <source src="{% static 'action.wav' %}" type="audio/wav">
+        </audio>
+        <script>
+            const button=document.getElementById('spotify');
+            const youtube=document.getElementById('youtube')
+            const audio=document.getElementById('myAudio');
+            button.addEventListener('click',function(){
+                audio.play();
+                button.innerHTML='Converting';
+            })
+            youtube.addEventListener('click',function(){
+                 audio.play();
+                 button.innerHTML='Converting';
+            })
+        </script>
     </body>
 </html>
