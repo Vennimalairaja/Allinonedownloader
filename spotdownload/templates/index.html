@@ -6,10 +6,20 @@
     </head>
     <body>
         <h1>This is my page</h1>
+        <div>
         <form method='POST'>
             {{form.as_p}}
             {% csrf_token %}
-            <button type="submit">Submit</button>
+            <button type="submit" name="form_submit" value="spotify">Submit</button>
         </form>
+        </div>
+        <div>
+            <form method="POST">
+                {{youtube.as_p}}
+                {% csrf_token %}
+                <button type="submit" name="form_submit" value="Youtube">Submit</button>
+            </form>
+        </div>
+
     </body>
 </html>
