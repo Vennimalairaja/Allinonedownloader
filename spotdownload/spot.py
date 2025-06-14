@@ -10,6 +10,8 @@ def spot_download(url):
                 file=i
                 break
         #shutil.move(f'/home/raja/Documents/allinonedownloader/{file}','/home/raja/Documents/allinonedownloader/static/Music')
-        return file
+        return file 
     except Exception as e:
         return False
+
+#print(spot_download('https://open.spotify.com/track/2pUpNOgJBIBCcjyQZQ00qU?si=8a35de59a5ed435b'))
